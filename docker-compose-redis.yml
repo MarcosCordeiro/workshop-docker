@@ -1,0 +1,27 @@
+version: "3"
+services:
+
+  redis:
+    image: redis
+    ports:
+      - "6379"
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+  nginx:
+    image: nginx
+    ports:
+      - 80:80
+    depends_on:
+      - redis
+    deploy:
+      mode: replicated
+      replicas: 2
+      placement:
+        constraints: [node.role == manager]
+      resources:
+        limits:
+          memory: 512M
+      restart_policy:
+        condition: on-failure
+        delay: 10s
