@@ -1,0 +1,80 @@
+Comandos Docker
+
+# Listar Imagens
+docker image ls
+docker images 
+
+# Listar Containers
+docker container ls
+
+# Listar Network 
+docker network ls
+
+# Listar Volumes
+docker volume ls
+
+# Buildar imagem 
+docker build -t <nome da imagem> . 
+
+# Construir container em modo deamon 
+docker container exec -d <imagem>
+
+# Construir container em modo iterativo com terminal
+docker container exec -it <imagem> bash (ou sh, depende da imagem)
+
+# Remover Imagem
+docker image rm <Nome ou ID da imagem>
+
+# Remover Container
+docker container rm <Nome ou ID do container> 
+
+# Parar container 
+docker container stop <Nome ou ID do container> 
+
+# Iniciar container 
+docker container start <Nome ou ID do container> 
+
+# Ver detalhes do container
+docker container inspect <Nome ou ID do container> 
+
+# Ver detalhes da imagem
+docker container inspect <Nome ou ID da imagem>
+
+# Subir container com compose (com o arquivo docker-compose.yml no local onde será executado)
+docker-compose up 
+
+# Subir container com compose em modo deamon (com o arquivo docker-compose.yml no local onde será executado)
+docker-compose up -d 
+
+# Listar serviços do compose (com o arquivo docker-compose.yml no local onde será executado)
+docker-compose ps 
+
+# Parar serviços do compose
+docker-compose stop
+
+# Iniciar serviços do compose
+docker-compose start
+
+# Remover serviços do compose
+docker-compose down
+
+# Criar cluster do Swarm
+docker swarm init --advertise-addr <ip do servidor>
+
+# Pegar token para ingressar um worker ou manager no cluster
+docker swarm join-token [manager|worker]
+
+# Listar nós do cluster
+docker node ls
+
+# Listar Stacks 
+docker stack ls
+
+# Listar Servicos
+docker service ls
+
+# Mostrar processo do serviço
+docker service ps <Id ou nome do serviço>
+
+
+
